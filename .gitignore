@@ -42,7 +42,6 @@ macos/
 test/
 web/
 windows/
-README.md
 
 # Symbolication related
 app.*.symbols
