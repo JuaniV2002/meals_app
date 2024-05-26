@@ -72,7 +72,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'DeliMeals',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink)
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.indigo)
             .copyWith(secondary: Colors.amber),
         canvasColor: const Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
@@ -85,7 +85,7 @@ class _MyAppState extends State<MyApp> {
               ),
               titleLarge: const TextStyle(
                 fontSize: 20,
-                fontFamily: 'RobotoCondensed',
+                fontFamily: 'Lato',
                 fontWeight: FontWeight.bold,
               ),
             ),

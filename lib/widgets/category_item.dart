@@ -35,6 +35,7 @@ class CategoryItem extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(15),
         ),
+        alignment: Alignment.center,
         child: Text(
           title,
           style: Theme.of(context).textTheme.titleLarge,

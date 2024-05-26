@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '/widgets/main_drawer.dart';
@@ -51,12 +52,12 @@ class _TabsScreenState extends State<TabsScreen> {
         items: [
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
-            icon: const Icon(Icons.category),
-            label: 'Categories',
+            icon: const Icon(CupertinoIcons.rectangle_stack),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
-            icon: const Icon(Icons.star),
+            icon: const Icon(CupertinoIcons.star),
             label: 'Favorites',
           ),
         ],

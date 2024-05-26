@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '/widgets/main_drawer.dart';
@@ -34,11 +35,16 @@ class _FilterScreenState extends State<FilterScreen> {
     bool currentValue,
     Function updateValue,
   ) {
-    return SwitchListTile(
+    return ListTile(
       title: Text(title),
-      value: currentValue,
       subtitle: Text(description),
-      onChanged: updateValue as void Function(bool)?,
+      trailing: CupertinoSwitch(
+        value: currentValue,
+        onChanged: updateValue as void Function(bool)?,
+      ),
+      onTap: () {
+        updateValue(!currentValue);
+      },
     );
   }
 
@@ -49,7 +55,7 @@ class _FilterScreenState extends State<FilterScreen> {
           title: const Text('Filters'),
           actions: [
             IconButton(
-              icon: const Icon(Icons.save),
+              icon: const Icon(CupertinoIcons.floppy_disk),
               onPressed: () {
                 final selectedFilters = {
                   'gluten': _glutenFree,

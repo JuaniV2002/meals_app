@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '/screens/filters_screen.dart';
@@ -14,7 +15,7 @@ class MainDrawer extends StatelessWidget {
       title: Text(
         title,
         style: const TextStyle(
-          fontFamily: 'RobotoCondensed',
+          fontFamily: 'Lato',
           fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
@@ -43,19 +44,20 @@ class MainDrawer extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
           buildListTile(
-            'Meals',
-            Icons.restaurant,
+            'Categories',
+            CupertinoIcons.rectangle_stack,
             () {
               Navigator.of(context).pushReplacementNamed('/');
             },
           ),
           buildListTile(
             'Filters',
-            Icons.settings,
+            CupertinoIcons.settings,
             () {
-              Navigator.of(context).pushReplacementNamed(FilterScreen.routeName);
+              Navigator.of(context)
+                  .pushReplacementNamed(FilterScreen.routeName);
             },
           ),
         ],

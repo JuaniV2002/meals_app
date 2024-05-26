@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../dummy_data.dart';
@@ -8,7 +9,6 @@ class MealDetailScreen extends StatelessWidget {
   final Function toggleFavorite;
   final Function isFavorite;
   const MealDetailScreen(this.toggleFavorite, this.isFavorite, {super.key});
-
 
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
@@ -23,9 +23,17 @@ class MealDetailScreen extends StatelessWidget {
   Widget buildContainer(Widget child) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: Colors.grey),
+        color: const Color.fromARGB(255, 116, 209, 255),
+        border: Border.all(color: Colors.amber),
         borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
       ),
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(10),
@@ -45,6 +53,16 @@ class MealDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(selectedMeal.title),
+        actions: [
+          IconButton(
+            icon: Icon(
+              isFavorite(mealId)
+                  ? CupertinoIcons.star_fill
+                  : CupertinoIcons.star,
+            ),
+            onPressed: () => toggleFavorite(mealId),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -92,14 +110,9 @@ class MealDetailScreen extends StatelessWidget {
                 itemCount: selectedMeal.steps.length,
               ),
             ),
+            SizedBox(height: 50),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(
-          isFavorite(mealId) ? Icons.star : Icons.star_border,
-        ),
-        onPressed: () => toggleFavorite(mealId),
       ),
     );
   }

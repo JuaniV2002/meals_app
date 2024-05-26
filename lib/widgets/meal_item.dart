@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../models/meal.dart';
@@ -114,21 +115,21 @@ class MealItem extends StatelessWidget {
                 children: <Widget>[
                   Row(
                     children: <Widget>[
-                      const Icon(Icons.schedule),
+                      const Icon(CupertinoIcons.clock),
                       const SizedBox(width: 6),
                       Text('$duration min'),
                     ],
                   ),
                   Row(
                     children: <Widget>[
-                      const Icon(Icons.work),
+                      const Icon(CupertinoIcons.briefcase),
                       const SizedBox(width: 6),
                       Text(complexityText),
                     ],
                   ),
                   Row(
                     children: <Widget>[
-                      const Icon(Icons.attach_money),
+                      const Icon(CupertinoIcons.money_dollar),
                       const SizedBox(width: 6),
                       Text(affordabilityText),
                     ],
