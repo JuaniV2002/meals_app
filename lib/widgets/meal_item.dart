@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 import '../models/meal.dart';
 import '../screens/meal_detail_screen.dart';
@@ -78,11 +79,12 @@ class MealItem extends StatelessWidget {
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
                   ),
-                  child: Image.network(
-                    imageUrl,
+                  child: FadeInImage(
+                    placeholder: MemoryImage(kTransparentImage),
+                    image: NetworkImage(imageUrl),
+                    fit: BoxFit.cover,
                     height: 250,
                     width: double.infinity,
-                    fit: BoxFit.cover,
                   ),
                 ),
                 Positioned(
