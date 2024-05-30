@@ -83,9 +83,12 @@ class MealDetailScreen extends StatelessWidget {
             SizedBox(
               height: 300,
               width: double.infinity,
-              child: Image.network(
-                selectedMeal.imageUrl,
-                fit: BoxFit.cover,
+              child: Hero(
+                tag: selectedMeal.id,
+                child: Image.network(
+                  selectedMeal.imageUrl,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             buildSectionTitle(context, 'Ingredients'),
