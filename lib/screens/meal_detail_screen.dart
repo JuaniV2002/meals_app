@@ -55,10 +55,23 @@ class MealDetailScreen extends StatelessWidget {
         title: Text(selectedMeal.title),
         actions: [
           IconButton(
-            icon: Icon(
-              isFavorite(mealId)
-                  ? CupertinoIcons.star_fill
-                  : CupertinoIcons.star,
+            icon: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              transitionBuilder: (child, animation) {
+                return RotationTransition(
+                  turns: Tween(
+                    begin: 0.5,
+                    end: 1.0,
+                  ).animate(animation),
+                  child: child,
+                );
+              },
+              child: Icon(
+                isFavorite(mealId)
+                    ? CupertinoIcons.star_fill
+                    : CupertinoIcons.star,
+                key: ValueKey(isFavorite(mealId)),
+              ),
             ),
             onPressed: () => toggleFavorite(mealId),
           ),
