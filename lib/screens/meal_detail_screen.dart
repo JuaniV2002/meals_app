@@ -70,6 +70,7 @@ class MealDetailScreen extends StatelessWidget {
                 isFavorite(mealId)
                     ? CupertinoIcons.star_fill
                     : CupertinoIcons.star,
+                color: Theme.of(context).colorScheme.secondary,
                 key: ValueKey(isFavorite(mealId)),
               ),
             ),
