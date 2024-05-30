@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_complete_guide/screens/categories_screen.dart';
 
 import '/screens/filters_screen.dart';
 
@@ -28,34 +30,65 @@ class MainDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Column(
-        children: <Widget>[
-          Container(
-            height: 120,
-            width: double.infinity,
+        children: [
+          DrawerHeader(
             padding: const EdgeInsets.all(20),
-            alignment: Alignment.centerLeft,
-            color: Theme.of(context).colorScheme.secondary,
-            child: Text(
-              'Cooking Up!',
-              style: TextStyle(
-                fontWeight: FontWeight.w900,
-                fontSize: 30,
-                color: Theme.of(context).primaryColor,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Theme.of(context).colorScheme.primaryContainer,
+                  Theme.of(context)
+                      .colorScheme
+                      .primaryContainer
+                      .withOpacity(0.8),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
+            ),
+            child: Row(
+              children: [
+                Text(
+                  'Cooking up!',
+                  style: TextStyle(color: Colors.white, fontSize: 30),
+                ),
+              ],
             ),
           ),
           const SizedBox(height: 15),
-          buildListTile(
-            'Categories',
-            CupertinoIcons.rectangle_stack,
-            () {
+          ListTile(
+            leading: Icon(
+              CupertinoIcons.rectangle_stack,
+              size: 26,
+            ),
+            title: Text(
+              'Categories',
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                    fontSize: 24,
+                    fontFamily: 'Raleway',
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+            onTap: () {
               Navigator.of(context).pushReplacementNamed('/');
             },
           ),
-          buildListTile(
-            'Filters',
-            CupertinoIcons.settings,
-            () {
+          ListTile(
+            leading: Icon(
+              CupertinoIcons.settings,
+              size: 26,
+            ),
+            title: Text(
+              'Filters',
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                    fontSize: 24,
+                    fontFamily: 'Raleway',
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+            onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(FilterScreen.routeName);
             },
